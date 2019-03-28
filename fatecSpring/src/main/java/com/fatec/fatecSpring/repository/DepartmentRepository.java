@@ -14,7 +14,8 @@ public interface DepartmentRepository extends CrudRepository<Department, Long>{
 	
 	public Department findByObservation(String phrase);
 
-	
-
+	public Department findByName(String name);
+	public List<Collaborator> findByDepartment(Department department);
+	public List<Department> findByNameList(String name);
 	
 }
