@@ -2,6 +2,8 @@ package com.fatec.fatecSpring.repository;
 
 import java.util.List;
 
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
@@ -13,6 +15,11 @@ public interface CollaboratorRepository extends CrudRepository<Collaborator, Lon
 	
 	//@Query("SELECT * FROM collaborator WHERE name LIKE '%:name%'")
 	//public List<Collaborator> findByNameCollaborator(@Param(":name") String name);
+	
+	@Modifying
+    @Query(value = "truncate table collaborator",nativeQuery = true)
+	void truncateDatabaseCollaborator();
+	
 	
 	
 	public Collaborator findByCpf(String cpfv);

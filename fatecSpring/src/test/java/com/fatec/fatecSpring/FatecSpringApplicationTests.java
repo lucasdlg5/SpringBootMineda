@@ -8,6 +8,8 @@ import static org.junit.Assert.assertEquals;
 import java.util.List;
 import java.util.Optional;
 
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,13 +49,24 @@ public class FatecSpringApplicationTests {
 	@Autowired
 	private DepartmentImplements deptoImp;
 	
+	@Before public void populateDatabase(){
+		Collaborator col1 = new Collaborator(NAME_COLLABORATOR, AGE_COLLABORATOR, CPF_COLLABORATOR, new Department (NAME_DEPARTMENT, DESCRIPTION, OBSERVATION));
+		collRep.save(col1);	
+	}
+	
+	
+	
 	@Test
 	public void procuraCollaboratorPorCpf() {
-		
-		Collaborator col1 = new Collaborator(NAME_COLLABORATOR, AGE_COLLABORATOR, CPF_COLLABORATOR, new Department (NAME_DEPARTMENT, DESCRIPTION, OBSERVATION));
-		collRep.save(col1);		
+			
 		assertEquals(collImp.findByCpf(CPF_COLLABORATOR).getCpf(),col1.getCpf());
 	}	
+	
+	@After public void truncateDatabase(){
+		deptoImp.truncateDatabaseDepartment();
+		collImp.truncateDatabaseCollaborator();
+	}
+	
 	
 }
 

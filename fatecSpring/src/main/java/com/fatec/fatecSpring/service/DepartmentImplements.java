@@ -1,9 +1,13 @@
 package com.fatec.fatecSpring.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.fatec.fatecSpring.model.Department;
+import com.fatec.fatecSpring.repository.CollaboratorRepository;
 import com.fatec.fatecSpring.repository.DepartmentRepository;
 
 
@@ -24,8 +28,12 @@ public class DepartmentImplements implements DepartmentService {
 	}
 	
 	public List<Department> findByNameList(String name){
-		return departmentRep.findByNameList(String name);
+		return departmentRep.findByNameList( name);
 	}
 	
-	
+	 @Override
+	    @Transactional
+	    public void truncateDatabaseDepartment() {
+		 departmentRep.truncateDatabaseDepartment();
+	    }
 }

@@ -35,6 +35,14 @@ public class CollaboratorImplements implements CollaboratorService {
 	public List<Department> findByDepartment(Department department){
 		return collaboratorRep.findByDepartment(department);
 	}
+	
+	// other methods, @Autowiring, etc
+
+    @Override
+    @Transactional
+    public void truncateDatabaseCollaborator() {
+    	collaboratorRep.truncateDatabaseCollaborator();
+    }
 
 	
 }

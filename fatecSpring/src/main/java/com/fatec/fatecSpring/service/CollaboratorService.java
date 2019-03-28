@@ -16,4 +16,7 @@ public interface CollaboratorService  {
 	public Collaborator findByAge(Integer age);
 	
 	public List<Department> findByDepartment(Department department);
+	
+	public void truncateDatabaseCollaborator();
+	
 }
