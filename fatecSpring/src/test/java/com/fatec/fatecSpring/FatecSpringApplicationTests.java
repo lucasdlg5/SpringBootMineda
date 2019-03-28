@@ -22,6 +22,7 @@ import com.fatec.fatecSpring.repository.CollaboratorRepository;
 import com.fatec.fatecSpring.repository.DepartmentRepository;
 import com.fatec.fatecSpring.service.CollaboratorImplements;
 import com.fatec.fatecSpring.service.CollaboratorService;
+import com.fatec.fatecSpring.service.DepartmentImplements;
 
 
 
@@ -40,17 +41,17 @@ public class FatecSpringApplicationTests {
 	Department dep = new Department (NAME_DEPARTMENT, DESCRIPTION, OBSERVATION);
 	Collaborator col1 = new Collaborator(NAME_COLLABORATOR, AGE_COLLABORATOR, CPF_COLLABORATOR, dep);
 	@Autowired
-	private CollaboratorRepository CollaboratorRepo;
-	@Autowired
-	private DepartmentRepository deptoRep;
-	@Autowired
 	private CollaboratorImplements collImp;
+	@Autowired
+	private CollaboratorRepository collRep;
+	@Autowired
+	private DepartmentImplements deptoImp;
 	
 	@Test
 	public void procuraCollaboratorPorCpf() {
 		
 		Collaborator col1 = new Collaborator(NAME_COLLABORATOR, AGE_COLLABORATOR, CPF_COLLABORATOR, new Department (NAME_DEPARTMENT, DESCRIPTION, OBSERVATION));
-		CollaboratorRepo.save(col1);		
+		collRep.save(col1);		
 		assertEquals(collImp.findByCpf(CPF_COLLABORATOR).getCpf(),col1.getCpf());
 	}	
 	
