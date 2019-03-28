@@ -14,8 +14,19 @@ public class DepartmentImplements implements DepartmentService {
 
 	@Autowired
 	DepartmentRepository departmentRep;
+	CollaboratorRepository collabRep;
 	
 	public Department findByObservation(String phrase) {
 		return departmentRep.findByObservation(phrase);
 	}
+	
+	public Department findByName(String name) {
+		return departmentRep.findByName(name);
+	}
+	
+	public List<Department> findByNameList(String name){
+		return departmentRep.findByNameList(String name);
+	}
+	
+	
 }
