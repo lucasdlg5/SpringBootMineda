@@ -34,6 +34,22 @@ public class Collaborator {
 	private Department department;
 
 
+	public Integer getId_collaborator() {
+		return id_collaborator;
+	}
+
+	public void setId_collaborator(Integer id_collaborator) {
+		this.id_collaborator = id_collaborator;
+	}
+
+	public Department getDepartment() {
+		return department;
+	}
+
+	public void setDepartment(Department department) {
+		this.department = department;
+	}
+
 	public Collaborator(String NAME, Integer AGE, String CPF, Department department) {
 		this.name = NAME;
 		this.age = AGE;

@@ -6,8 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.fatec.fatecSpring.model.Collaborator;
 import com.fatec.fatecSpring.model.Department;
-import com.fatec.fatecSpring.repository.CollaboratorRepository;
 import com.fatec.fatecSpring.repository.DepartmentRepository;
 
 
@@ -17,7 +17,6 @@ public class DepartmentImplements implements DepartmentService {
 
 	@Autowired
 	DepartmentRepository departmentRep;
-	CollaboratorRepository collabRep;
 	
 	public Department findByObservation(String phrase) {
 		return departmentRep.findByObservation(phrase);
@@ -27,13 +26,15 @@ public class DepartmentImplements implements DepartmentService {
 		return departmentRep.findByName(name);
 	}
 	
-	public List<Department> findByNameList(String name){
-		return departmentRep.findByNameList( name);
+	@Override
+	public List<Collaborator> findCollaboratorByDepartment(String name) {
+		return departmentRep.findCollaboratorByDepartment(name);
 	}
 	
-	 @Override
-	    @Transactional
+	@Override
+    @Transactional
 	    public void truncateDatabaseDepartment() {
-		 departmentRep.truncateDatabaseDepartment();
-	    }
+		departmentRep.truncateDatabaseDepartment();
+    }
+
 }

@@ -13,7 +13,7 @@ public interface CollaboratorService  {
 	
 	public Collaborator findByName(String name);
 	
-	public Collaborator findByAge(Integer age);
+	public Integer findByAge(Integer age);
 	
 	public List<Department> findByDepartment(Department department);
 	

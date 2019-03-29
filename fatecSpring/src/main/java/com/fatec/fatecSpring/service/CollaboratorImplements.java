@@ -28,7 +28,7 @@ public class CollaboratorImplements implements CollaboratorService {
 		return collaboratorRep.findByName(name);
 	}
 	
-	public Collaborator findByAge(Integer age) {
+	public Integer findByAge(Integer age) {
 		return collaboratorRep.findByAge(age);
 	}
 

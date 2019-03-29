@@ -34,6 +34,7 @@ import com.fatec.fatecSpring.service.DepartmentImplements;
 @Transactional
 public class FatecSpringApplicationTests {
 
+	/*
 	private static final String NAME_COLLABORATOR = "Gutinho da Silva";
 	private static final Integer AGE_COLLABORATOR = 21;
 	private static final String CPF_COLLABORATOR = "33333333333";
@@ -42,6 +43,8 @@ public class FatecSpringApplicationTests {
 	private static final String OBSERVATION = "HR";
 	Department dep = new Department (NAME_DEPARTMENT, DESCRIPTION, OBSERVATION);
 	Collaborator col1 = new Collaborator(NAME_COLLABORATOR, AGE_COLLABORATOR, CPF_COLLABORATOR, dep);
+	 */
+	
 	@Autowired
 	private CollaboratorImplements collImp;
 	@Autowired
@@ -49,18 +52,40 @@ public class FatecSpringApplicationTests {
 	@Autowired
 	private DepartmentImplements deptoImp;
 	
-	@Before public void populateDatabase(){
-		Collaborator col1 = new Collaborator(NAME_COLLABORATOR, AGE_COLLABORATOR, CPF_COLLABORATOR, new Department (NAME_DEPARTMENT, DESCRIPTION, OBSERVATION));
-		collRep.save(col1);	
-	}
 	
+	Collaborator col2 = new Collaborator("Kewinho Acoxambers", 20, "22222222222", new Department ("BUSINESS INTELLIGENCE", "FOR RESEARCHES", "BI"));
+	Collaborator col1 = new Collaborator("Gutinho da Silva", 21, "11111111111", new Department ("HUMAN RESOURCES", "FOR HUMAN PURPOSES", "HR"));
+	Collaborator col3 = new Collaborator("Gusta Zangast", 22, "33333333333", new Department ("PRO PLAYER", "AT LEAGUE OF CANCER", "LOLZINHO"));
+	Collaborator col4 = new Collaborator("Jonta Sóisso", 22, "44444444444", new Department ("VALGA", "BUNDO", "VAGABUNDO"));
+	@Before public void populateDatabase(){
+		collRep.save(col1);
+		collRep.save(col2);
+		collRep.save(col3);
+		collRep.save(col4);
+		
+	}
 	
 	
 	@Test
 	public void procuraCollaboratorPorCpf() {
-			
-		assertEquals(collImp.findByCpf(CPF_COLLABORATOR).getCpf(),col1.getCpf());
+		assertEquals(col1.getCpf(),collImp.findByCpf("11111111111").getCpf());
 	}	
+	
+	
+	@Test
+	public void procuraCollaboratorPorNome() {
+		assertEquals(col3.getName(),collImp.findByName("Gusta Zangast").getName());
+	}
+
+	@Test
+	public void procuraCollaboratorPorIdade() { 
+		assertEquals(2,collImp.findByAge(22),0);
+	}
+	
+	@Test
+	public void procuraDepartmentPorNome() {
+		assertEquals("VALGA", col4.getDepartment().getName());
+	}
 	
 	@After public void truncateDatabase(){
 		deptoImp.truncateDatabaseDepartment();
