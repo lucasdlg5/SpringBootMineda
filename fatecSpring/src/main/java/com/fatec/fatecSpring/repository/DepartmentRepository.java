@@ -15,9 +15,8 @@ import com.fatec.fatecSpring.model.Department;
 @Repository
 public interface DepartmentRepository extends CrudRepository<Department, Long>{
 	
-	@Query ("SELECT d FROM Department d WHERE d.name like %?1%")
-	public List<Collaborator> findCollaboratorByDepartment(String name);
 	
+	@Query ("SELECT d FROM Department d where d.observation like %?1%")
 	public Department findByObservation(String phrase);
 
 	public Department findByName(String name);

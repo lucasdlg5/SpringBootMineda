@@ -26,10 +26,6 @@ public class DepartmentImplements implements DepartmentService {
 		return departmentRep.findByName(name);
 	}
 	
-	@Override
-	public List<Collaborator> findCollaboratorByDepartment(String name) {
-		return departmentRep.findCollaboratorByDepartment(name);
-	}
 	
 	@Override
     @Transactional

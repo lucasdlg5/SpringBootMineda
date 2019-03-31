@@ -56,7 +56,7 @@ public class FatecSpringApplicationTests {
 	//Department
 	
 	@Autowired
-	private DepartmentImplements deptImp2;
+	private DepartmentImplements deptImp;
 	
 	@Autowired
 	private DepartmentRepository deptRep;
@@ -70,11 +70,15 @@ public class FatecSpringApplicationTests {
 	Collaborator col1 = new Collaborator("Gutinho da Silva", 21, "11111111111", new Department ("HUMAN RESOURCES", "FOR HUMAN PURPOSES", "HR"));
 	Collaborator col3 = new Collaborator("Gusta Zangast", 22, "33333333333", new Department ("PRO PLAYER", "AT LEAGUE OF CANCER", "LOLZINHO"));
 	Collaborator col4 = new Collaborator("Jonta Sóisso", 22, "44444444444", new Department ("VALGA", "BUNDO", "VAGABUNDO"));
+	Collaborator col5 = new Collaborator("Jonta Sóisso2", 22, "44444444444", new Department ("VALGA", "BUNDO", "VAGABUNDO"));
+	Department dept1 =  new Department("venda", "aqui vende", "vende pra caramba");
 	@Before public void populateDatabase(){
 		collRep.save(col1);
 		collRep.save(col2);
 		collRep.save(col3);
 		collRep.save(col4);
+		collRep.save(col5);
+		deptRep.save(dept1);
 		
 	}
 	
@@ -92,12 +96,34 @@ public class FatecSpringApplicationTests {
 
 	@Test
 	public void procuraCollaboratorPorIdade() { 
-		assertEquals(2,collImp.findByAge(22),0);
+		assertEquals(3,collImp.findByAge(22),0);
 	}
 	
 	@Test
 	public void procuraDepartmentPorNome() {
 		assertEquals("VALGA", col4.getDepartment().getName());
+	}
+	
+	@Test
+	public void procuraDepartmentNome2() {
+		assertEquals("PRO PLAYER", deptoImp.findByName("PRO PLAYER").getName());
+	}
+	
+	@Test
+	public void procuraCollaboratorPorDepartamento() {
+		assertEquals("PRO PLAYER",deptImp.findByName("PRO PLAYER").getName());
+	}
+	
+	@Test
+	public void findByName() {
+		assertEquals(dept1.getName(), deptImp.findByName("venda").getName());
+	}
+
+	
+	@Test
+	public void findByObservation() {
+		assertEquals("vende pra caramba", deptImp.findByObservation("vende pra caramba").getObservation());
+
 	}
 	
 	@After public void truncateDatabase(){
