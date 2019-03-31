@@ -49,7 +49,7 @@ public class CollaboratorController {
 	
 	@RequestMapping (value = "/getAll")
 	//@JsonView(View.Alternative.Class)
-	public ResponseEntity<Collection<Collaborator>> getAllCOllaborator(){
+	public ResponseEntity<Collection<Collaborator>> getAllCollaborator(){
 		return new ResponseEntity<Collection<Collaborator>>(collaboratorService.getAll(), HttpStatus.OK);
 	}
 	
