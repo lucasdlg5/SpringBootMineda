@@ -1,5 +1,6 @@
 package com.fatec.fatecSpring.service;
 
+import java.util.Collection;
 import java.util.List;
 
 import com.fatec.fatecSpring.model.Collaborator;
@@ -18,5 +19,7 @@ public interface CollaboratorService  {
 	public List<Department> findByDepartment(Department department);
 	
 	public void truncateDatabaseCollaborator();
+
+	public Collection<Collaborator> getAll();
 	
 }

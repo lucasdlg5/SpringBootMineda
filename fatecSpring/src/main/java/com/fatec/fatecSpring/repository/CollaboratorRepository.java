@@ -1,5 +1,6 @@
 package com.fatec.fatecSpring.repository;
 
+import java.util.Collection;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.Modifying;
@@ -26,5 +27,8 @@ public interface CollaboratorRepository extends CrudRepository<Collaborator, Lon
 	public Collaborator findByName(String name);
 	
 	public List<Department> findByDepartment(Department department);
+	
+	@Query("Select c FROM Collaborator c")
+	public Collection<Collaborator> getAll();
 	
 }

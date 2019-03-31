@@ -1,6 +1,7 @@
 package com.fatec.fatecSpring.service;
 
 
+import java.util.Collection;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,6 +44,12 @@ public class CollaboratorImplements implements CollaboratorService {
     public void truncateDatabaseCollaborator() {
     	collaboratorRep.truncateDatabaseCollaborator();
     }
+
+
+	@Override
+	public Collection<Collaborator> getAll() {
+		return collaboratorRep.getAll();
+	}
 
 	
 }
