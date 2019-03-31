@@ -15,4 +15,7 @@ public class View {
 		
 	}
 	
+	public static class collaboratorAge{
+		
+	}
 }

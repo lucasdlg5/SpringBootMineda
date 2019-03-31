@@ -24,15 +24,15 @@ public class Collaborator {
 	private Integer id_collaborator;
 
 	@Column(name = "name")
-	@JsonView({View.All.class})
+	@JsonView({View.All.class, View.collaboratorName.class})
 	private String name;
 
 	@Column(name = "age")
-	@JsonView({View.All.class, View.collaboratorName.class})
+	@JsonView({View.All.class, View.collaboratorAge.class})
 	private Integer age;
 
 	@Column(name = "cpf")
-	@JsonView({View.collaboratorCpf.class})
+	@JsonView({View.All.class, View.collaboratorCpf.class})
 	private String cpf;
 	
 	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL/*, targetEntity = Department.class*/)
