@@ -22,7 +22,7 @@ public class CollaboratorController {
 	//mvn spring-boot:run
 	//Realizar os testes usando Postman ou similar
 	
-	
+	 
 	private CollaboratorService collaboratorService;
 	
 	// www.[...].com/collaborator/get/"Antonio"

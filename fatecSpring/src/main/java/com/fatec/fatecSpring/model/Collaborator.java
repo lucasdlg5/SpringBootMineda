@@ -12,6 +12,9 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonView;
+import com.fatec.fatecSprint.view.View;
+
 @Entity
 @Table(name = "Collaborator")
 public class Collaborator {
@@ -21,12 +24,15 @@ public class Collaborator {
 	private Integer id_collaborator;
 
 	@Column(name = "name")
+	@JsonView({View.All.class})
 	private String name;
 
 	@Column(name = "age")
+	@JsonView({View.All.class, View.collaboratorName.class})
 	private Integer age;
 
 	@Column(name = "cpf")
+	@JsonView({View.collaboratorCpf.class})
 	private String cpf;
 	
 	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL/*, targetEntity = Department.class*/)
