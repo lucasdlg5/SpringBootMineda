@@ -4,7 +4,7 @@ public class View {
 
 	// Todos os atributos da classe Collaborator
 	public static class All{
-		//teste
+		
 	}
 	
 	public static class collaboratorName{
@@ -18,4 +18,6 @@ public class View {
 	public static class collaboratorAge{
 		
 	}
+	
+	
 }

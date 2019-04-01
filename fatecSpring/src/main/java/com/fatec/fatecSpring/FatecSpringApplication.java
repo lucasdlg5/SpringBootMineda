@@ -9,6 +9,7 @@ import com.fatec.fatecSpring.model.Collaborator;
 import com.fatec.fatecSpring.model.Department;
 import com.fatec.fatecSpring.repository.CollaboratorRepository;
 import com.fatec.fatecSpring.repository.DepartmentRepository;
+import com.fatec.fatecSpring.service.CollaboratorService;
 
 
 
@@ -32,6 +33,9 @@ public class FatecSpringApplication implements CommandLineRunner {
 		SpringApplication.run(FatecSpringApplication.class, args);
 	}
 
+	/*@Autowired
+	CollaboratorService service;
+	*/
 	@Override
 	public void run(String... args) throws Exception {
 	/*	
@@ -39,6 +43,10 @@ public class FatecSpringApplication implements CommandLineRunner {
 	Collaborator col1 = new Collaborator(NAME_COLLABORATOR, AGE_COLLABORATOR, CPF_COLLABORATOR, new Department (NAME_DEPARTMENT, DESCRIPTION, OBSERVATION));
 	collRep.save(col1);
 	*/
+		//Collaborator col1 = new Collaborator("Gutinho da Silva", 21, "11111111111", new Department ("HUMAN RESOURCES", "FOR HUMAN PURPOSES", "HR"));
+		
+		//System.out.println(service.findByCpf("333333").getName());
+		
 		
 	}
 
