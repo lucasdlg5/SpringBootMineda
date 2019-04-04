@@ -3,6 +3,7 @@ package com.fatec.fatecSpring;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import com.fatec.fatecSpring.model.Collaborator;
@@ -13,7 +14,7 @@ import com.fatec.fatecSpring.service.CollaboratorService;
 
 
 
-
+@EnableAutoConfiguration
 @SpringBootApplication
 public class FatecSpringApplication implements CommandLineRunner {
 	/*

@@ -22,7 +22,7 @@ public class CollaboratorImplements implements CollaboratorService {
 	@Transactional
 	public Collaborator findByCpf(String cpfv) {
 		return collaboratorRep.findByCpf(cpfv);
-	}
+	} 
 	
 	
 	public Collaborator findByName(String name) {

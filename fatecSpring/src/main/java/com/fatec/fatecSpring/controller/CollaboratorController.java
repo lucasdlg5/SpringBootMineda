@@ -1,9 +1,11 @@
-package com.fatec.fatecSprint.controller;
+package com.fatec.fatecSpring.controller;
 
+import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -24,7 +26,7 @@ public class CollaboratorController {
 	@Autowired
 	private CollaboratorService collaboratorService;
 	
-	/*// www.[...].com/collaborator/get/"Antonio"
+	// www.[...].com/collaborator/get/"Antonio"
 	@RequestMapping (value = "/get/{name}")
 	@JsonView({View.collaboratorName.class})
 	public ResponseEntity<Collaborator> pesquisarNomeCollaborator (@PathVariable("name") String name){
@@ -33,19 +35,16 @@ public class CollaboratorController {
 			return new ResponseEntity<Collaborator>(HttpStatus.NOT_FOUND);
 		}
 		return new ResponseEntity<Collaborator> ( collaboratorService.findByName(name), HttpStatus.OK);
-	}*/
+	}
 	
 	
 	
 	
 	// www.[...].com/collaborator/getByCpf?cpf="teste"
 	@RequestMapping (value = "/getbycpf")
-	//@JsonView({View.collaboratorCpf.class})
+	@JsonView({View.collaboratorCpf.class})
 	public ResponseEntity<Collaborator> getCollaboratorByCpf (@RequestParam (value="cpf", defaultValue="1") String cpf){
-		System.out.println(cpf);
 		Collaborator col = collaboratorService.findByCpf(cpf);
-		//System.out.println(col.getName());
-
 		if (col == null) {
 			return new ResponseEntity<Collaborator>(HttpStatus.NOT_FOUND);
 		}
@@ -53,13 +52,13 @@ public class CollaboratorController {
 	}
 	
 	
-	/*
+	
 	
 	@RequestMapping (value = "/getAll")
 	@JsonView({View.All.class})
 	public ResponseEntity<Collection<Collaborator>> getAllCollaborator(){
 		return new ResponseEntity<Collection<Collaborator>>(collaboratorService.getAll(), HttpStatus.OK);
 	}
-	*/
+	
 	
 }

@@ -1,4 +1,4 @@
-package com.fatec.fatecSprint.controller;
+package com.fatec.fatecSpring.controller;
 import java.util.Collection;
 
 import org.springframework.http.HttpStatus;
@@ -14,7 +14,7 @@ import com.fatec.fatecSpring.service.DepartmentService;
 @RequestMapping(value = "/department")
 public class DepartmentController {
 	
-	private DepartmentService departmentService;
+	/*private DepartmentService departmentService;
 	@RequestMapping (value = "/get/{name}")
 	public ResponseEntity<Department> findDepartmentByName(@PathVariable("name") String name){
 		Department dept = departmentService.findByName(name);
@@ -31,5 +31,5 @@ public class DepartmentController {
 		
 		return new ResponseEntity<Department> (departmentService.findByName(obs), HttpStatus.OK);
 }
-
+*/
 }
