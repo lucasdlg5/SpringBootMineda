@@ -1,0 +1,44 @@
+Anotações:
+@SpringBootApplication: é uma anotação de conveniência que contém as seguintes anotações do Spring: @Configuration, @EnableAutoConfiguration e @ComponentScan.
+
+
+@Autowired: A anotação @ Autowired fornece controle sobre onde e como a ligação entre os beans deve ser realizada. Pode ser usado para em métodos setter, no construtor, em uma propriedade ou métodos com nomes arbitrários e / ou vários argumentos.
+
+@Service: Anotação que serve para definir uma classe como pertencente à camada de Serviço da aplicação.
+
+@Reposytoria: Anotação que serve para definir uma classe como pertencente à camada de persistência.
+
+@Component: Anotação genérica para qualquer componente gerenciado pelo Spring. Esta anotação faz com que o bean registrado no Spring possa ser utilizado em qualquer bean, seja ele um serviço, um DAO, um controller, etc. No nosso exemplo, ele será responsável por um Bean que representa uma entidade.
+
+@Override: Ele é uma forma de garantir que você está sobrescrevendo um método e não criando um novo.
+
+
+@RestController: Esta anotação adiciona automaticamente a anotação @Controller e @ResponseBody e não faz nada além disso, e neste caso todo retorno do serviço será transformado para um JSON.
+
+
+@RequestMapping("/home") //Define que qualquer ação desse controler deve preceder /home
+
+
+@PathVariable: é utilizado quando o valor da variável é passada diretamente na URL, mas não como um parametro que você passa após o sinal de interrogação (?) mas sim quando o valor faz parte da url.
+
+
+@RequestParam: podemos ter vários parametros passados por url mas que não são parte da url em sí
+
+@XmlRootElement: Essa anotação indica que o valor da classe será representado como um elemento XML principal.
+
+@XmlAccessorType: define se os campos ou as propriedades do Javabean (classe de modelo) são serializados por padrão pelo JAXB
+como:@XmlAccessorType(XmlAccessType.FIELD): Serializará atributos e getters anotados.
+
+
+@Entity: é utilizada para informar que uma classe também é uma entidade.
+
+
+@GeneratedValue: é utilizada para informar que a geração do valor do identificador único da entidade será gerenciada pelo provedor de persistência.
+
+@ManyToOne: Esta classe só pode ter uma dessa variável, mas a variavel pode ter várias dessa classe;
+
+@XmlElement: representa uma tag dentro do XML
+
+ @Transactional: trabalha dentro do escopo de uma transação no banco de dados, a transação do banco de dados ocorre dentro do PersistenceContext, que por sua vez, está dentro do EntityManager que é implementado usando Hibernate Session (quando você está usando o Hibernate como container).
+
+

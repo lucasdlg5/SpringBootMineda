@@ -12,7 +12,7 @@ import org.springframework.stereotype.Repository;
 import com.fatec.fatecSpring.model.Collaborator;
 import com.fatec.fatecSpring.model.Department;
 
-//@Repository
+@Repository
 public interface CollaboratorRepository extends CrudRepository<Collaborator, Long> {
 	
 	@Query("SELECT count(c) FROM Collaborator c WHERE c.age = ?1 ")

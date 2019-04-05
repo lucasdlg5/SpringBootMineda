@@ -1,3 +1,6 @@
+
+
+
 package com.fatec.fatecSpring;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +17,8 @@ import com.fatec.fatecSpring.service.CollaboratorService;
 
 
 
-//@EnableAutoConfiguration
+//Classe que pode ser usada para inicializar e iniciar um aplicativo Spring a partir 
+//de um método principal Java.
 @SpringBootApplication
 public class FatecSpringApplication implements CommandLineRunner {
 	/*
