@@ -11,10 +11,17 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 
 import com.fasterxml.jackson.annotation.JsonView;
 import com.fatec.fatecSpring.view.View;
 
+
+@XmlRootElement 
+@XmlAccessorType(XmlAccessType.FIELD)
 @Entity
 @Table(name = "Collaborator")
 public class Collaborator {
@@ -37,6 +44,7 @@ public class Collaborator {
 	
 	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL/*, targetEntity = Department.class*/)
 	@JoinColumn(name="department_id")
+	@XmlElement(name = "Collaborator")
 	private Department department;
 
 
