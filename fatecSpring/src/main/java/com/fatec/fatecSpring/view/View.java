@@ -1,4 +1,4 @@
-package com.fatec.fatecSprint.view;
+package com.fatec.fatecSpring.view;
 
 public class View {
 

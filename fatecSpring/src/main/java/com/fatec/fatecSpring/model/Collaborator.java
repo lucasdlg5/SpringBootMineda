@@ -13,7 +13,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonView;
-import com.fatec.fatecSprint.view.View;
+import com.fatec.fatecSpring.view.View;
 
 @Entity
 @Table(name = "Collaborator")

@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.fasterxml.jackson.annotation.JsonView;
 import com.fatec.fatecSpring.model.Collaborator;
 import com.fatec.fatecSpring.service.CollaboratorService;
-import com.fatec.fatecSprint.view.View;
+import com.fatec.fatecSpring.view.View;
 
 @RestController
 @RequestMapping(value = "/collaborator")
@@ -34,7 +34,7 @@ public class CollaboratorController {
 		if (col == null) {
 			return new ResponseEntity<Collaborator>(HttpStatus.NOT_FOUND);
 		}
-		return new ResponseEntity<Collaborator> ( collaboratorService.findByName(name), HttpStatus.OK);
+		return new ResponseEntity<Collaborator> ( col, HttpStatus.OK);
 	}
 	
 	

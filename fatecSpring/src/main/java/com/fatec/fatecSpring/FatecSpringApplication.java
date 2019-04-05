@@ -14,7 +14,7 @@ import com.fatec.fatecSpring.service.CollaboratorService;
 
 
 
-@EnableAutoConfiguration
+//@EnableAutoConfiguration
 @SpringBootApplication
 public class FatecSpringApplication implements CommandLineRunner {
 	/*
