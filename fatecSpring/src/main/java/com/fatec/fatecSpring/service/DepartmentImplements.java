@@ -1,5 +1,6 @@
 package com.fatec.fatecSpring.service;
 
+import java.util.Collection;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +25,10 @@ public class DepartmentImplements implements DepartmentService {
 	
 	public Department findByName(String name) {
 		return departmentRep.findByName(name);
+	}
+	@Override
+	public Collection<Department> getAll() {
+		return departmentRep.getAll();
 	}
 	
 	

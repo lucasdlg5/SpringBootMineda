@@ -10,7 +10,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+@XmlRootElement 
+@XmlAccessorType(XmlAccessType.FIELD)
 @Entity
 @Table(name = "Department")
 public class Department {
@@ -34,6 +39,7 @@ public class Department {
 	private String observation;
 	
 	@OneToMany (mappedBy = "department")
+	@XmlElement(name = "Department")
 	private List<Collaborator> departamentoColaborador = new ArrayList<Collaborator>();
 	
 	public Department(String NAME, String DESCRIPTION, String OBSERVATION) {

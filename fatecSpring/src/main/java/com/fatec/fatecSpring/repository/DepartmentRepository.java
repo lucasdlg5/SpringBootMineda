@@ -1,6 +1,7 @@
 package com.fatec.fatecSpring.repository;
 
 
+import java.util.Collection;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.Modifying;
@@ -20,6 +21,7 @@ public interface DepartmentRepository extends CrudRepository<Department, Long>{
 	public Department findByObservation(String phrase);
 
 	public Department findByName(String name);
+	public Collection<Department> getAll();
 	
 
 	
