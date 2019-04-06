@@ -14,6 +14,9 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+
+import com.fasterxml.jackson.annotation.JsonView;
+import com.fatec.fatecSpring.view.View;
 @XmlRootElement 
 @XmlAccessorType(XmlAccessType.FIELD)
 @Entity
@@ -30,12 +33,15 @@ public class Department {
 	private Integer id_department;
 
 	@Column(name = "name")
+	@JsonView({View.All.class, View.departmentName.class})
 	private String name;
 
 	@Column(name = "description")
+	@JsonView({View.All.class, View.departmentdesc.class})
 	private String description;
 
 	@Column(name = "observation")
+	@JsonView({View.All.class, View.departmentObs.class})
 	private String observation;
 	
 	@OneToMany (mappedBy = "department")

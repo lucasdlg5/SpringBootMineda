@@ -26,10 +26,6 @@ public class DepartmentImplements implements DepartmentService {
 	public Department findByName(String name) {
 		return departmentRep.findByName(name);
 	}
-	@Override
-	public Collection<Department> getAll() {
-		return departmentRep.getAll();
-	}
 	
 	
 	@Override
@@ -37,5 +33,10 @@ public class DepartmentImplements implements DepartmentService {
 	    public void truncateDatabaseDepartment() {
 		departmentRep.truncateDatabaseDepartment();
     }
+	
+	@Override
+	public Collection<Department> geAll(){
+		return departmentRep.getAll();
+	}
 
 }

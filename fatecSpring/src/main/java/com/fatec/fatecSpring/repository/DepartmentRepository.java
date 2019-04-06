@@ -17,15 +17,19 @@ import com.fatec.fatecSpring.model.Department;
 public interface DepartmentRepository extends CrudRepository<Department, Long>{
 	
 	
-	@Query ("SELECT d FROM Department d where d.observation like %?1%")
-	public Department findByObservation(String phrase);
-
-	public Department findByName(String name);
-	public Collection<Department> getAll();
 	
-
 	
 	@Modifying
     @Query(value = "truncate table department",nativeQuery = true)
 	void truncateDatabaseDepartment();
+
+	@Query ("SELECT d FROM Department d where d.observation like %?1%")
+	public Department findByObservation(String phrase);
+
+	public Department findByName(String name);
+	
+
+	
+	@Query("Select d from Department d")
+	public Collection<Department> getAll();
 }
