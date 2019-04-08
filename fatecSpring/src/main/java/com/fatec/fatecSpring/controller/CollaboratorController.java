@@ -2,12 +2,19 @@ package com.fatec.fatecSpring.controller;
 
 import java.util.Collection;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.annotation.JsonView;
@@ -51,7 +58,15 @@ public class CollaboratorController {
 		return new ResponseEntity<Collaborator> ( col, HttpStatus.OK);
 	}
 	
-	
+	@RequestMapping(value = "/getbyid/{id}")
+	@JsonView({View.All.class})
+	public ResponseEntity<Collaborator> getCollaboratorById(@PathVariable("id") Long id){
+		Collaborator col = collaboratorService.buscarPorId(id);
+		if (col == null) {
+			return new ResponseEntity<Collaborator>(HttpStatus.NOT_FOUND);
+		}
+		return new ResponseEntity<Collaborator> ( col, HttpStatus.OK);
+	}
 	
 	
 	@RequestMapping (value = "/getAll")
@@ -60,5 +75,13 @@ public class CollaboratorController {
 		return new ResponseEntity<Collection<Collaborator>>(collaboratorService.getAll(), HttpStatus.OK);
 	}
 	
-	
+//	@RequestMapping(value = "/save", method =  RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+//	@JsonView(View.All.class)
+//	@ResponseStatus (HttpStatus.CREATED)
+//	public Collaborator Save(@RequestBody Collaborator collaborator, HttpServletRequest request, HttpServletResponse response) {
+//		collaborator =  collaboratorService.salvar(collaborator);
+//		response.addHeader("Location", request.getServerName() + ":" + request.getServerPort() + request.getContextPath() + "/collaborator/getById?id=" + collaborator.getId_collaborator());
+//		return collaborator;	
+//		
+//	} 
 }

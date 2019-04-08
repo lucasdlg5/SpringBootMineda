@@ -21,5 +21,8 @@ public interface CollaboratorService  {
 	public void truncateDatabaseCollaborator();
 
 	public Collection<Collaborator> getAll();
-	
+
+
+	//public Collaborator salvar(Collaborator collaborator);
+	public Collaborator buscarPorId(Long id);
 }
