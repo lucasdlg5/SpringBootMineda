@@ -7,6 +7,9 @@ public class View {
 	public static class All{
 		
 	}
+	public static class collaboratorComplete{
+		
+	}
 	public static class collaboratorId{
 		
 	}

@@ -23,6 +23,6 @@ public interface CollaboratorService  {
 	public Collection<Collaborator> getAll();
 
 
-	//public Collaborator salvar(Collaborator collaborator);
-	public Collaborator buscarPorId(Long id);
+	public Collaborator salvar(Collaborator collaborator);
+	public Collaborator buscarPorId(Integer id);
 }

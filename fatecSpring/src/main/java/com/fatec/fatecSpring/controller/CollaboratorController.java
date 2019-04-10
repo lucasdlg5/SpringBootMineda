@@ -22,6 +22,7 @@ import com.fatec.fatecSpring.model.Collaborator;
 import com.fatec.fatecSpring.service.CollaboratorService;
 import com.fatec.fatecSpring.view.View;
 
+
 @RestController
 @RequestMapping(value = "/collaborator")
 public class CollaboratorController {
@@ -60,7 +61,7 @@ public class CollaboratorController {
 	
 	@RequestMapping(value = "/getbyid/{id}")
 	@JsonView({View.All.class})
-	public ResponseEntity<Collaborator> getCollaboratorById(@PathVariable("id") Long id){
+	public ResponseEntity<Collaborator> getCollaboratorById(@PathVariable("id") Integer id){
 		Collaborator col = collaboratorService.buscarPorId(id);
 		if (col == null) {
 			return new ResponseEntity<Collaborator>(HttpStatus.NOT_FOUND);
@@ -75,13 +76,12 @@ public class CollaboratorController {
 		return new ResponseEntity<Collection<Collaborator>>(collaboratorService.getAll(), HttpStatus.OK);
 	}
 	
-//	@RequestMapping(value = "/save", method =  RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
-//	@JsonView(View.All.class)
-//	@ResponseStatus (HttpStatus.CREATED)
-//	public Collaborator Save(@RequestBody Collaborator collaborator, HttpServletRequest request, HttpServletResponse response) {
-//		collaborator =  collaboratorService.salvar(collaborator);
-//		response.addHeader("Location", request.getServerName() + ":" + request.getServerPort() + request.getContextPath() + "/collaborator/getById?id=" + collaborator.getId_collaborator());
-//		return collaborator;	
-//		
-//	} 
+	
+	@RequestMapping(value = "/save", method = RequestMethod.POST)
+	@JsonView(View.collaboratorComplete.class)
+	public ResponseEntity<Collaborator> save(@RequestBody Collaborator collaborator, HttpServletRequest request, HttpServletResponse response) {
+		collaborator = collaboratorService.salvar(collaborator);
+		response.addHeader("Location", request.getServerName() + ":" + request.getServerPort() + request.getContextPath() + "/collaborator/getById?id=" + collaborator.getId_collaborator());
+		return new ResponseEntity<Collaborator>(collaborator, HttpStatus.CREATED);
+	} 
 }

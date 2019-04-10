@@ -22,12 +22,8 @@ public class CollaboratorImplements implements CollaboratorService {
 	@Autowired
 	CollaboratorRepository collaboratorRep;
 	
-	public Collaborator buscarPorId(Long id) {
-		Optional<Collaborator> coll = collaboratorRep.findById(id);
-		if(coll.isPresent()) {
-			return coll.get();
-		}
-		return null;
+	public Collaborator buscarPorId(Integer id) {
+		return collaboratorRep.buscarPorId(id);
 	}
 
 	@Transactional
@@ -63,17 +59,11 @@ public class CollaboratorImplements implements CollaboratorService {
 		return collaboratorRep.getAll();
 	}
 
-//	@Override
-//	@Transactional
-//	public Collaborator salvar(Collaborator collaborator) {
-//		Collaborator coll= collaboratorRep.findByName(collaborator.getName());
-//		if(coll == null) {
-//			collaboratorRep.save(collaborator);
-//			return collaborator;
-//			
-//		}
-//		return null;
-//	}
+	@Override
+	public Collaborator salvar(Collaborator collaborator) {
+		return collaboratorRep.save(collaborator);
+	}
+	
 
 	
 }
