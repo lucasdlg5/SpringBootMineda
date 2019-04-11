@@ -67,6 +67,11 @@ public class CollaboratorImplements implements CollaboratorService {
 		
 	}
 	
+	public List<Collaborator> findByNameOrCpfOrAge(String name, Integer age, String cpf) { 
+		return collaboratorRep.findByNameOrCpfOrAge(name, age, cpf);
+		
+	}
+	
 
 	
 }

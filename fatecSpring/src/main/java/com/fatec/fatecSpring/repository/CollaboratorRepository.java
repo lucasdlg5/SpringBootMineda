@@ -19,6 +19,9 @@ public interface CollaboratorRepository extends CrudRepository<Collaborator, Lon
 	@Query("SELECT count(c) FROM Collaborator c WHERE c.age = ?1 ")
 	public Integer findByAge(Integer age );
 	
+	@Query("SELECT c FROM Collaborator c WHERE c.name like %?1% or c.age = ?2 or c.cpf like %?3%")
+	public List<Collaborator> findByNameOrCpfOrAge(String name, Integer age, String cpf );
+	
 	@Modifying
     @Query(value = "truncate table collaborator",nativeQuery = true)
 	void truncateDatabaseCollaborator();

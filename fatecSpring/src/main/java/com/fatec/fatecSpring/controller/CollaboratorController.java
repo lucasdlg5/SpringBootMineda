@@ -59,6 +59,13 @@ public class CollaboratorController {
 		return new ResponseEntity<Collaborator> ( col, HttpStatus.OK);
 	}
 	
+	
+	@RequestMapping (value = "/getbynameorageorcpf")
+	@JsonView({View.Id.class})
+	public ResponseEntity<Collection<Collaborator>> findByNameOrCpfOrAge (@RequestParam (value="name", defaultValue="0") String name, @RequestParam (value="age", defaultValue="0") Integer age, @RequestParam (value="cpf", defaultValue="0") String cpf){
+		return new ResponseEntity<Collection<Collaborator>>(collaboratorService.findByNameOrCpfOrAge(name, age, cpf), HttpStatus.OK);
+	}
+	
 	@RequestMapping(value = "/getbyid/{id}")
 	@JsonView({View.All.class})
 	public ResponseEntity<Collaborator> getCollaboratorById(@PathVariable("id") Integer id){
@@ -78,9 +85,10 @@ public class CollaboratorController {
 	
 	
 	@RequestMapping(value = "/save", method = RequestMethod.POST)
-	@JsonView(View.collaboratorComplete.class)
+	@JsonView(View.All.class)
 	public ResponseEntity<Collaborator> save(@RequestBody Collaborator collaborator, HttpServletRequest request, HttpServletResponse response) {
 		collaborator = collaboratorService.save(collaborator);
+		//if (collaborator == null) return new ResponseEntity<Collaborator>(collaborator, HttpStatus.INTERNAL_SERVER_ERROR);
 		response.addHeader("Location", request.getServerName() + ":" + request.getServerPort() + request.getContextPath() + "/collaborator/getById?id=" + collaborator.getId_collaborator());
 		return new ResponseEntity<Collaborator>(collaborator, HttpStatus.CREATED);
 	} 

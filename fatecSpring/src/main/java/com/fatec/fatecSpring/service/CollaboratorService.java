@@ -9,6 +9,8 @@ import com.fatec.fatecSpring.model.Department;
 
 
 public interface CollaboratorService  {
+	
+	public List<Collaborator> findByNameOrCpfOrAge(String name, Integer age, String cpf );
 
 	public Collaborator findByCpf(String cpfv);
 	

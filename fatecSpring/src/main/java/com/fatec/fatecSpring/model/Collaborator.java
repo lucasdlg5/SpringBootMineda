@@ -27,19 +27,20 @@ import com.fatec.fatecSpring.view.View;
 public class Collaborator {
 
 	@Id
+	@JsonView({View.Id.class})
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id_collaborator;
 
 	@Column(name = "name")
-	@JsonView({View.All.class, View.collaboratorName.class})
+	@JsonView({View.All.class, View.collaboratorName.class, View.Id.class})
 	private String name;
 
 	@Column(name = "age")
-	@JsonView({View.All.class, View.collaboratorAge.class})
+	@JsonView({View.All.class, View.collaboratorAge.class, View.Id.class})
 	private Integer age;
 
 	@Column(name = "cpf")
-	@JsonView({View.All.class, View.collaboratorCpf.class})
+	@JsonView({View.All.class, View.collaboratorCpf.class, View.Id.class})
 	private String cpf;
 	
 	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL/*, targetEntity = Department.class*/)

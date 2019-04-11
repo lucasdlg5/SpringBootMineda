@@ -4,6 +4,10 @@ public class View {
 
 	
 	// Todos os atributos da classe Collaborator
+	
+	public static class Id{
+		
+	}
 	public static class All{
 		
 	}
