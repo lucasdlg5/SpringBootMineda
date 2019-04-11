@@ -19,6 +19,7 @@ public interface DepartmentRepository extends CrudRepository<Department, Long>{
 	
 	
 	
+	
 	@Modifying
     @Query(value = "truncate table department",nativeQuery = true)
 	void truncateDatabaseDepartment();
@@ -35,4 +36,10 @@ public interface DepartmentRepository extends CrudRepository<Department, Long>{
 	
 	@Query("Select d from Department d")
 	public Collection<Department> getAll();
+	
+	
+	@Query("SELECT d FROM Department d WHERE d.id_department = ?1 ")
+	public Department buscarPorId(Integer id);
+	
+	//public Department salvar(Department department);
 }

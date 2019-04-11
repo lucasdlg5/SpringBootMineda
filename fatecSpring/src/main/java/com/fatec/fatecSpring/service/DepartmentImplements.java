@@ -42,5 +42,14 @@ public class DepartmentImplements implements DepartmentService {
 	public Collection<Department> geAll(){
 		return departmentRep.getAll();
 	}
+	
+	public Department buscarPorId(Integer id) {
+		return departmentRep.buscarPorId(id);
+	}
 
+//	@Override
+//	public Department salvar(Department department) {
+//		return departmentRep.save(department);
+//	}
+	
 }

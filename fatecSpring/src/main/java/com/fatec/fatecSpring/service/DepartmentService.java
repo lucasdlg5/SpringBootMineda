@@ -14,5 +14,6 @@ public interface DepartmentService {
 	public Department findByDescription (String description);
 	public void truncateDatabaseDepartment();
 	public Collection<Department> geAll();
-	
+	public Department buscarPorId(Integer id);
+	//public Department salvar(Department department);
 }
