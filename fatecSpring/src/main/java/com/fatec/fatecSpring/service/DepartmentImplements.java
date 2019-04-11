@@ -19,6 +19,10 @@ public class DepartmentImplements implements DepartmentService {
 	@Autowired
 	DepartmentRepository departmentRep;
 	
+	public Department findByDescription (String description) {
+		return departmentRep.findByDescription(description);
+	}
+	
 	public Department findByObservation(String phrase) {
 		return departmentRep.findByObservation(phrase);
 	}

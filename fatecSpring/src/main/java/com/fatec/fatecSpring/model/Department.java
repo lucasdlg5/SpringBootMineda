@@ -54,10 +54,6 @@ public class Department {
 		this.observation = OBSERVATION;
 	}
 
-	public String getDESCRIPTION() {
-		return description;
-	}
-
 	public Integer getID_DEPARTMENT() {
 		return id_department;
 	}

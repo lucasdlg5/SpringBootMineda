@@ -25,6 +25,9 @@ public interface DepartmentRepository extends CrudRepository<Department, Long>{
 
 	@Query ("SELECT d FROM Department d where d.observation like %?1%")
 	public Department findByObservation(String phrase);
+	
+	@Query ("SELECT d FROM Department d where d.description like %?1%")
+	public Department findByDescription(String description);
 
 	public Department findByName(String name);
 	

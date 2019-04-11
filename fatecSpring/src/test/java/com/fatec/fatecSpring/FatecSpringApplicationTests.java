@@ -82,7 +82,7 @@ public class FatecSpringApplicationTests {
 		
 	}
 	
-	
+	//Testes Collaborator
 	@Test
 	public void procuraCollaboratorPorCpf() {
 		assertEquals(col1.getCpf(),collImp.findByCpf("11111111111").getCpf());
@@ -99,10 +99,9 @@ public class FatecSpringApplicationTests {
 		assertEquals(3,collImp.findByAge(22),0);
 	}
 	
-	@Test
-	public void procuraDepartmentPorNome() {
-		assertEquals("VALGA", col4.getDepartment().getName());
-	}
+	
+	
+	//Testes Department
 	
 	@Test
 	public void procuraDepartmentNome2() {
@@ -110,8 +109,9 @@ public class FatecSpringApplicationTests {
 	}
 	
 	@Test
-	public void procuraCollaboratorPorDepartamento() {
-		assertEquals("PRO PLAYER",deptImp.findByName("PRO PLAYER").getName());
+	public void findByDescription() {
+		assertEquals(dept1.getDescription(), deptImp.findByDescription("aqui").getDescription());
+		
 	}
 	
 	@Test

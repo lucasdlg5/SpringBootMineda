@@ -11,6 +11,7 @@ public interface DepartmentService {
 	
 	public Department findByObservation(String phrase);
 	public Department findByName(String name);
+	public Department findByDescription (String description);
 	public void truncateDatabaseDepartment();
 	public Collection<Department> geAll();
 	
