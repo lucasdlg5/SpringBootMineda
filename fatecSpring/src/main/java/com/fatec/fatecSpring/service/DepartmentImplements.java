@@ -46,10 +46,12 @@ public class DepartmentImplements implements DepartmentService {
 	public Department buscarPorId(Integer id) {
 		return departmentRep.buscarPorId(id);
 	}
+	
+	public Department save(Department department) {
+		Department dept = departmentRep.findByName(department.getName());
+		if (dept == null) return departmentRep.save(department);
+		return null;
+	}
 
-//	@Override
-//	public Department salvar(Department department) {
-//		return departmentRep.save(department);
-//	}
 	
 }

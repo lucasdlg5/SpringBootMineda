@@ -32,8 +32,6 @@ public interface CollaboratorRepository extends CrudRepository<Collaborator, Lon
 	@Query("Select c FROM Collaborator c")
 	public Collection<Collaborator> getAll();
 	
-	//public Collaborator salvar(Collaborator collaborator);
-	
 	@Query("SELECT c FROM Collaborator c WHERE c.id_collaborator = ?1 ")
 	public Collaborator buscarPorId(Integer id);
 	

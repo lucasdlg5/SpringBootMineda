@@ -32,6 +32,7 @@ public interface DepartmentRepository extends CrudRepository<Department, Long>{
 
 	public Department findByName(String name);
 	
+	
 
 	
 	@Query("Select d from Department d")
@@ -41,5 +42,4 @@ public interface DepartmentRepository extends CrudRepository<Department, Long>{
 	@Query("SELECT d FROM Department d WHERE d.id_department = ?1 ")
 	public Department buscarPorId(Integer id);
 	
-	//public Department salvar(Department department);
 }

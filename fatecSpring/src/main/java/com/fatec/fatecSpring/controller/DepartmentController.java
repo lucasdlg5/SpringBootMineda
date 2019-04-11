@@ -67,12 +67,12 @@ public class DepartmentController {
 		 return new ResponseEntity<Department> (dept, HttpStatus.OK);
 	 }
 	
-//	@RequestMapping(value = "/save", method = RequestMethod.POST)
-//	@JsonView(View.collaboratorComplete.class)
-//	public ResponseEntity<Department> save(@RequestBody Department department, HttpServletRequest request, HttpServletResponse response) {
-//		department = departmentService.salvar(department);
-//		response.addHeader("Location", request.getServerName() + ":" + request.getServerPort() + request.getContextPath() + "/collaborator/getById?id=" + department.getID_DEPARTMENT());
-//		return new ResponseEntity<Department>(department, HttpStatus.CREATED);
-//	} 
+	@RequestMapping(value = "/save", method = RequestMethod.POST)
+	@JsonView(View.collaboratorComplete.class)
+	public ResponseEntity<Department> save(@RequestBody Department department, HttpServletRequest request, HttpServletResponse response) {
+		department = departmentService.save(department);
+		response.addHeader("Location", request.getServerName() + ":" + request.getServerPort() + request.getContextPath() + "/collaborator/getById?id=" + department.getID_DEPARTMENT());
+		return new ResponseEntity<Department>(department, HttpStatus.CREATED);
+	} 
 	
 }

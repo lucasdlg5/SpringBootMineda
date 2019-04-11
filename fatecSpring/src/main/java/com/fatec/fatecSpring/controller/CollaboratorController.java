@@ -80,7 +80,7 @@ public class CollaboratorController {
 	@RequestMapping(value = "/save", method = RequestMethod.POST)
 	@JsonView(View.collaboratorComplete.class)
 	public ResponseEntity<Collaborator> save(@RequestBody Collaborator collaborator, HttpServletRequest request, HttpServletResponse response) {
-		collaborator = collaboratorService.salvar(collaborator);
+		collaborator = collaboratorService.save(collaborator);
 		response.addHeader("Location", request.getServerName() + ":" + request.getServerPort() + request.getContextPath() + "/collaborator/getById?id=" + collaborator.getId_collaborator());
 		return new ResponseEntity<Collaborator>(collaborator, HttpStatus.CREATED);
 	} 

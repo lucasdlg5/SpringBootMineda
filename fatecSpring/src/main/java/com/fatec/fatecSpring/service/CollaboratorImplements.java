@@ -60,8 +60,11 @@ public class CollaboratorImplements implements CollaboratorService {
 	}
 
 	@Override
-	public Collaborator salvar(Collaborator collaborator) {
-		return collaboratorRep.save(collaborator);
+	public Collaborator save(Collaborator collaborator) {
+		Collaborator col = collaboratorRep.findByCpf(collaborator.getCpf());
+		if (col == null) return collaboratorRep.save(collaborator);
+		return null;
+		
 	}
 	
 
