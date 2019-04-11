@@ -32,25 +32,56 @@ public class FatecSpringApplication implements CommandLineRunner {
 	private static final String CPF_COLLABORATOR = "33333333333";
 	private static final String NAME_DEPARTMENT = "HUMAN RESOURCES";
 	private static final String DESCRIPTION = "FOR HUMAN PURPOSES";
-	private static final String OBSERVATION = "HR";*/
-	
+	private static final String OBSERVATION = "HR";
+	*/
 	public static void main(String[] args) {
 		SpringApplication.run(FatecSpringApplication.class, args);
 	}
 
-	/*@Autowired
+	@Autowired
 	CollaboratorService service;
-	*/
+	
 	@Override
 	public void run(String... args) throws Exception {
-	/*	
-	//Department dep = new Department (NAME_DEPARTMENT, DESCRIPTION, OBSERVATION);
-	Collaborator col1 = new Collaborator(NAME_COLLABORATOR, AGE_COLLABORATOR, CPF_COLLABORATOR, new Department (NAME_DEPARTMENT, DESCRIPTION, OBSERVATION));
-	collRep.save(col1);
-	*/
-		//Collaborator col1 = new Collaborator("Gutinho da Silva", 21, "11111111111", new Department ("HUMAN RESOURCES", "FOR HUMAN PURPOSES", "HR"));
 		
-		//System.out.println(service.findByCpf("333333").getName());
+		//Collaborator col1 = new Collaborator(NAME_COLLABORATOR, AGE_COLLABORATOR, CPF_COLLABORATOR, new Department (NAME_DEPARTMENT, DESCRIPTION, OBSERVATION));
+		//Collaborator col1 = new Collaborator("Gutinho da Silva", 21, "11111111111", new Department ("HUMAN RESOURCES", "FOR HUMAN PURPOSES", "HR"));
+		//collRep.save(col1);
+		
+		//Department dep = new Department (NAME_DEPARTMENT, DESCRIPTION, OBSERVATION);
+		//deptoRep.save(dep);
+		//System.out.println("Nome: "+deptoRep.findByName(NAME_DEPARTMENT).getName());
+		//System.out.println("Description: "+deptoRep.findByDescription(DESCRIPTION).getDescription());
+		//System.out.println("Observation: "+deptoRep.findByObservation(OBSERVATION).getObservation());
+
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		
 		
 	}

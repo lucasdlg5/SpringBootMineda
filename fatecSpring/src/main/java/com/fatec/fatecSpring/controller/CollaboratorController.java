@@ -36,7 +36,7 @@ public class CollaboratorController {
 	
 	// www.[...].com/collaborator/get/"Antonio"
 	@RequestMapping (value = "/get/{name}")
-	@JsonView({View.collaboratorName.class})
+	@JsonView({View.All.class})
 	public ResponseEntity<Collaborator> pesquisarNomeCollaborator (@PathVariable("name") String name){
 		Collaborator col = collaboratorService.findByName(name);
 		if (col == null) {
@@ -50,7 +50,7 @@ public class CollaboratorController {
 	
 	// www.[...].com/collaborator/getByCpf?cpf="teste"
 	@RequestMapping (value = "/getbycpf")
-	@JsonView({View.collaboratorCpf.class})
+	@JsonView({View.All.class})
 	public ResponseEntity<Collaborator> getCollaboratorByCpf (@RequestParam (value="cpf", defaultValue="1") String cpf){
 		Collaborator col = collaboratorService.findByCpf(cpf);
 		if (col == null) {
