@@ -16,28 +16,36 @@ import com.fatec.fatecSpring.view.View;
 @RestController
 @RequestMapping(value = "/department")
 public class DepartmentController {
-	 @RequestMapping("/")
-     public String home(){
-         return "Hello World!";
-     }
+	
 	private DepartmentService departmentService;
+		
+	 @RequestMapping("/")
+	 public String home(){
+	     return "Hello World!";
+	 }
+	 
+	 
+	 
 	@RequestMapping (value = "/getName/{name}")
 	@JsonView({View.departmentName.class})
 	public ResponseEntity<Department> findDepartmentByName(@PathVariable("name") String name){
+		System.out.println("Parametro recebido da rota /getName/{name}: "+ name);
 		Department dept = departmentService.findByName(name);
 		if(dept == null) return new ResponseEntity<Department> (HttpStatus.NOT_FOUND);
-		
-		return new ResponseEntity<Department> (departmentService.findByName(name), HttpStatus.OK);
+		System.out.println(dept.getName());
+		return new ResponseEntity<Department> (dept , HttpStatus.OK);
 }
 	
 
 	@RequestMapping (value = "/getObs/{obs}")
 	@JsonView({View.departmentName.class})
 	public ResponseEntity<Department> findDepartmentByObs(@PathVariable("obs") String obs){
-		Department dept = departmentService.findByName(obs);
+		System.out.println("Parametro recebido da rota /getObs/{obs}: "+ obs);
+		Department dept = departmentService.findByObservation(obs);
 		if(dept == null) return new ResponseEntity<Department> (HttpStatus.NOT_FOUND);
+		System.out.println(dept.getObservation());
 		
-		return new ResponseEntity<Department> (departmentService.findByObservation(obs), HttpStatus.OK);
+		return new ResponseEntity<Department> (dept, HttpStatus.OK);
 }
 	
 	
