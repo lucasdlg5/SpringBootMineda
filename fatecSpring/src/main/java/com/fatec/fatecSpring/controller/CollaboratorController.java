@@ -88,7 +88,7 @@ public class CollaboratorController {
 	@JsonView(View.All.class)
 	public ResponseEntity<Collaborator> save(@RequestBody Collaborator collaborator, HttpServletRequest request, HttpServletResponse response) {
 		collaborator = collaboratorService.save(collaborator);
-		//if (collaborator == null) return new ResponseEntity<Collaborator>(collaborator, HttpStatus.INTERNAL_SERVER_ERROR);
+		if (collaborator == null) return new ResponseEntity<>(HttpStatus.I_AM_A_TEAPOT);
 		response.addHeader("Location", request.getServerName() + ":" + request.getServerPort() + request.getContextPath() + "/collaborator/getById?id=" + collaborator.getId_collaborator());
 		return new ResponseEntity<Collaborator>(collaborator, HttpStatus.CREATED);
 	} 

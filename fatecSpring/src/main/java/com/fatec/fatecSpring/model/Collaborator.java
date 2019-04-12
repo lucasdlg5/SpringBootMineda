@@ -36,7 +36,7 @@ public class Collaborator {
 	private String name;
 
 	@Column(name = "age")
-	@JsonView({View.All.class, View.collaboratorAge.class, View.Id.class})
+	@JsonView({View.All.class, View.collaboratorAge.class})
 	private Integer age;
 
 	@Column(name = "cpf")
